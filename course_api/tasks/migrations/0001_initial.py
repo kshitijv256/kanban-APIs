@@ -7,7 +7,6 @@ import uuid
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -16,52 +15,135 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Board',
+            name="Board",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('external_id', models.UUIDField(db_index=True, default=uuid.uuid4, unique=True)),
-                ('created_date', models.DateTimeField(auto_now_add=True, db_index=True, null=True)),
-                ('modified_date', models.DateTimeField(auto_now=True, db_index=True, null=True)),
-                ('deleted', models.BooleanField(db_index=True, default=False)),
-                ('title', models.CharField(max_length=100)),
-                ('description', models.TextField()),
-                ('created_by', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "external_id",
+                    models.UUIDField(db_index=True, default=uuid.uuid4, unique=True),
+                ),
+                (
+                    "created_date",
+                    models.DateTimeField(auto_now_add=True, db_index=True, null=True),
+                ),
+                (
+                    "modified_date",
+                    models.DateTimeField(auto_now=True, db_index=True, null=True),
+                ),
+                ("deleted", models.BooleanField(db_index=True, default=False)),
+                ("title", models.CharField(max_length=100)),
+                ("description", models.TextField()),
+                (
+                    "created_by",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Status',
+            name="Status",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('external_id', models.UUIDField(db_index=True, default=uuid.uuid4, unique=True)),
-                ('created_date', models.DateTimeField(auto_now_add=True, db_index=True, null=True)),
-                ('modified_date', models.DateTimeField(auto_now=True, db_index=True, null=True)),
-                ('deleted', models.BooleanField(db_index=True, default=False)),
-                ('title', models.CharField(max_length=100)),
-                ('description', models.TextField()),
-                ('created_by', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "external_id",
+                    models.UUIDField(db_index=True, default=uuid.uuid4, unique=True),
+                ),
+                (
+                    "created_date",
+                    models.DateTimeField(auto_now_add=True, db_index=True, null=True),
+                ),
+                (
+                    "modified_date",
+                    models.DateTimeField(auto_now=True, db_index=True, null=True),
+                ),
+                ("deleted", models.BooleanField(db_index=True, default=False)),
+                ("title", models.CharField(max_length=100)),
+                ("description", models.TextField()),
+                (
+                    "created_by",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Task',
+            name="Task",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('external_id', models.UUIDField(db_index=True, default=uuid.uuid4, unique=True)),
-                ('created_date', models.DateTimeField(auto_now_add=True, db_index=True, null=True)),
-                ('modified_date', models.DateTimeField(auto_now=True, db_index=True, null=True)),
-                ('deleted', models.BooleanField(db_index=True, default=False)),
-                ('title', models.CharField(max_length=100)),
-                ('description', models.TextField()),
-                ('board', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='tasks.board')),
-                ('status', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='tasks.status')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "external_id",
+                    models.UUIDField(db_index=True, default=uuid.uuid4, unique=True),
+                ),
+                (
+                    "created_date",
+                    models.DateTimeField(auto_now_add=True, db_index=True, null=True),
+                ),
+                (
+                    "modified_date",
+                    models.DateTimeField(auto_now=True, db_index=True, null=True),
+                ),
+                ("deleted", models.BooleanField(db_index=True, default=False)),
+                ("title", models.CharField(max_length=100)),
+                ("description", models.TextField()),
+                (
+                    "board",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="tasks.board",
+                    ),
+                ),
+                (
+                    "status",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="tasks.status",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]
