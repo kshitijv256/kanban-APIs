@@ -56,3 +56,4 @@ importlib-metadata==4.13.0
 # ------------------------------------------------------------------------------
 django-storages[boto3]==1.12.3  # https://github.com/jschneier/django-storages
 django-anymail[mailgun]==8.5  # https://github.com/anymail/django-anymail
+whitenoise
