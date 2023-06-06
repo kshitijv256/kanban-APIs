@@ -23,12 +23,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 # DATABASES
 # ------------------------------------------------------------------------------
-DATABASES = {
-    "default": env.db(
-        "DATABASE_URL",
-        default="postgres://kanban_db_u2lk_user:5eHQ6eKN4rHgPwQZJx2Vp3dG37u9QUOT@dpg-chvhdh1mbg5b5p8f82vg-a/kanban_db_u2lk",
-    )
-}
+DATABASES = {"default": env.db("DATABASE_URL", default="postgres:///course_api")}
 DATABASES["default"] = env.db("DATABASE_URL")  # noqa F405
 DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa F405
 DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa F405
